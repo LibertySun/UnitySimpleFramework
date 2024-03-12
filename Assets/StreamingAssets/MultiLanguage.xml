@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Dictionaries>
+    <String Key="Language" Lang_1="英语" Lang_2="English" />
+    <String Key="CheckVersion.Tips" Lang_1="正在检查游戏是否需要更新，请稍候……" Lang_2="Checking if the game needs update. Please wait..." />
+    <String Key="UpdateResource.Tips" Lang_1="{0}/{1}, {2}/{3}, {4:P0}, {5}/s" Lang_2="{0}/{1}, {2}/{3}, {4:P0}, {5}/s" />
+</Dictionaries>

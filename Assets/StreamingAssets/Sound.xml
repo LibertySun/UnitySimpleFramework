@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SoundConfig>
+    <!--ID:编号 AssetName:资源名称 Priority:优先级（默认0，128最高，-128最低） Volume:音量（0~1） Loop:是否循环-->
+    <!--选择音效-->
+    <String ID="10000" AssetName="select.mp3" Priority="0" Volume="1" Loop="False" />
+    <!--点击音效-->
+    <String ID="10001" AssetName="click.mp3" Priority="0" Volume="1" Loop="False" />
+    <!--菜单音乐-->
+    <String ID="20000" AssetName="music_menu.mp3" Priority="0" Volume="1" Loop="True" />
+    <!--站点音乐-->
+    <String ID="20001" AssetName="music_station.mp3" Priority="0" Volume="1" Loop="True" />
+</SoundConfig>

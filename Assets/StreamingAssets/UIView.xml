@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--界面配置-->
+<UIViewConfig>
+    <!--展示时间 单位/秒-->
+    <String Key="LaunchView.LaunchTime" Value="2" />
+    <!--展示类型 LaunchImage:图片 LaunchVideo：视频-->
+    <String Key="LaunchView.LaunchType" Value="LaunchImage" />
+    <!--图片地址-->
+    <String Key="LaunchView.LaunchImage" Value="Logo.png" />
+    <!--视频地址-->
+    <String Key="LaunchView.LaunchVideo" Value="Logo.mp4" />
+
+    <String Key="LoadingView.BackgroundImage" Value="LoadingBg.png" />
+
+    <String Key="MainView.BackgroundImage" Value="LoadingBg.png" />
+
+    <String Key="StationView.BackgroundImage" Value="LoadingBg.png" />
+</UIViewConfig>

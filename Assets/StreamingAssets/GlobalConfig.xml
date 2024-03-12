@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--软件全局配置-->
+<GlobalSetting>
+    <!--软件配置-->
+    <!--自动休眠-->
+    <Setting Key="Software.SleepTimeout" Value="False" />
+    <!--日志输出-->
+    <Setting Key="Software.EnableDebug" Value="true" />
+    <!--设置语言  40：简体中文 10：英语 -->
+    <Setting Key="Software.Language" Value="40" />
+    <!--配置表地址-->
+    <!--多语言表-->
+    <Setting Key="XML.MultiLanguage" Value="MultiLanguage.xml" />
+    <!--音乐表-->
+    <Setting Key="XML.Sound" Value="Sound.xml" />
+    <!--界面表-->
+    <Setting Key="XML.UIView" Value="UIView.xml" />
+    <!--弱视训练-->
+    <Setting Key="XML.Amblyopia" Value="AmblyopiaTraining.xml" />
+    <!--站点地图表-->
+    <Setting Key="XML.Myopia" Value="MyopiaTraining.xml" />
+    <!--声音配置-->
+    <!--背景音乐开关-->
+    <Setting Key="Sound.MusicMuted" Value="true" />
+    <!--背景音乐音量 0-1-->
+    <Setting Key="Sound.MusicVolume" Value="1" />
+    <!--UI音效开关-->
+    <Setting Key="Sound.UISoundMuted" Value="true" />
+    <!--UI音效音量 0-1-->
+    <Setting Key="Sound.UISoundVolume" Value="1" />
+    <!--待机配置-->
+    <!--待机开关-->
+    <Setting Key="Standby.Standby" Value="true" />
+    <!--无操作进入待机时长 单位/秒-->
+    <Setting Key="Standby.StandbyTime" Value="30" />
+    <!--待机时播放的视频地址-->
+    <Setting Key="Standby.StandbyVideo" Value="Station/Common/Test.mp4" />
+</GlobalSetting>
