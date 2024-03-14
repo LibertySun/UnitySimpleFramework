@@ -42,7 +42,7 @@ abstract public class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T
     /// </summary>
     protected virtual void OnEnable() { }
 
-
+    protected virtual void Start(){ }
     protected virtual void Update() { }
     /// <summary>
     /// 当屏幕 获得/失去 焦点时调用

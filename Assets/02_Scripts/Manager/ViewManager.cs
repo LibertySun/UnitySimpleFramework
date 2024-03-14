@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
+using System;
 
 public class ViewManager : MonoSingleton<ViewManager>
 {
@@ -11,16 +12,19 @@ public class ViewManager : MonoSingleton<ViewManager>
     private Dictionary<CanvasLayer, Transform> CanvasLayerMap = new Dictionary<CanvasLayer, Transform>();
     private BaseView m_currentView = null;
 
+    private ViewType[] m_AllViewType;
     protected override void AwakeHandle()
     {
         PopupViewPrefab = ResourceManager.Instance.RequestLoadPrefab("PopupView", ResourceManager.PrefabType.UI);
         //UICamera = GameObject.FindGameObjectWithTag("UICamera").GetComponent<Camera>();
+
+        m_AllViewType = (ViewType[]) Enum.GetValues(typeof(ViewType)); 
     }
 
-    public IEnumerator Initialize()
+    public void OpenLaunchView()
     {
+        Debug.Log($"ViewManager.Initialize success");
         OpenView(ViewType.LaunchView);
-        yield return new WaitForSeconds(AppDataManager.Instance.LaunchTime);
     }
 
     public Transform GetCanvasLayer(CanvasLayer canvasLayer)
@@ -50,11 +54,11 @@ public class ViewManager : MonoSingleton<ViewManager>
     {
         if (ViewMap.Count > 0)
         {
-            foreach (var item in ViewMap)
+            foreach (var item in m_AllViewType)
             {
-                if (item.Value.UpdateFlag)
+                if (ViewMap.ContainsKey(item) )
                 {
-                    item.Value.UpdateHandle();
+                    ViewMap[item].UpdateHandle();
                 }
             }
         }
@@ -132,19 +136,18 @@ public class ViewManager : MonoSingleton<ViewManager>
             {
                 case ViewType.LaunchView:
                     baseView = CreateUi<LaunchView>("LaunchView", CanvasLayer.BackgroundLayer);
-                    //baseView = new LaunchView();
+                    break;
+                case ViewType.LoadConfigView:
+                    baseView = CreateUi<LoadConfigView>("LoadConfigView", CanvasLayer.InfoLayer);
                     break;
                 case ViewType.LoadingView:
                     baseView = CreateUi<LoadingView>("LoadingView");
-                    //baseView = new LoadingView();
                     break;
                 case ViewType.CheckUpdateView:
                     baseView = CreateUi<CheckUpdateView>("CheckUpdateView", CanvasLayer.InfoLayer);
-                    //baseView = new CheckUpdateView();
                     break;
                 case ViewType.MainView:
                     baseView = CreateUi<MainView>("MainView");
-                    //baseView = new MainView();
                     break;
                 default:
                     break;
@@ -216,10 +219,10 @@ public enum ViewType
 {
     NullView = -1,
     LaunchView,
+    LoadConfigView,
     CheckUpdateView,
     LoadingView,
     MainView,
-    StationView,
 }
 
 public enum ViewLayerType

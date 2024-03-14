@@ -23,6 +23,7 @@ public class AppManager : MonoSingleton<AppManager>
     [SerializeField]
     [Tooltip("设置屏幕是否超时自动息屏")]
     private bool sleepTimeout = true;
+    private float launchTime = 0f;
 
     private bool ForceUpdate = false;
 
@@ -35,24 +36,17 @@ public class AppManager : MonoSingleton<AppManager>
         Screen.sleepTimeout = sleepTimeout == true ? SleepTimeout.NeverSleep : SleepTimeout.SystemSetting;
         AppDataManager.Instance.IsGameStart = true;
     }
-    IEnumerator Start()
+    protected override void Update()
+    {
+        launchTime += Time.deltaTime;
+    }
+    protected override void Start()
     {
         //检测系统语言
-        yield return InitGameLanguage();
-        // 启动资源管理模块
-        yield return ResourceManager.Instance.Initialize();
-        //加载配置表
-        yield return ConfigManager.Instance.Initialize();
+        InitGameLanguage();
+        
         // 初始化UI界面
-        yield return ViewManager.Instance.Initialize();
-
-        // 初始化App版本,校验强更新
-        //yield return InitAppVersion();
-       
-        if (!ForceUpdate)
-        {
-            StartGame();
-        }
+        ViewManager.Instance.OpenLaunchView();
     }
 
     void OnGUI()
