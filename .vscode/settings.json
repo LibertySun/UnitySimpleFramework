@@ -56,5 +56,8 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "UnitySimpleFramework.sln"
+    "dotnet.defaultSolution": "UnitySimpleFramework.sln",
+    "cSpell.words": [
+        "argu"
+    ]
 }
